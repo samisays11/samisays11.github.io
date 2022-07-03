@@ -7,7 +7,7 @@ tags: [Swift, PhotoKit, UIKit, AVKit]
 ---
 
 ## What it will look like 
- <img src="/assets/lib/img/finalimg.sc.png" width="400" height="400">  
+ <img src="/assets/img/finalimg.sc.png" width="400" height="400">  
 
 
 ## What You'll Learn
@@ -32,7 +32,7 @@ To do this you will need to:
 4. In the Value column, type in whatever usage description you want the alert dialog to show the user the first time iOS request for permission. For this tutorial i'll just type in <span style="background-color: #FFFF00">**"Access to Photo Library Allows you to upload media from your Camera Roll to InstaPhotoPicker"**</span>
  
 Your **Info.plist** should look like this:
- <img src="/assets/lib/img/info.plist.sc.png">  
+ <img src="/assets/img/info.plist.sc.png">  
 
 
 ### Requesting Authorization
