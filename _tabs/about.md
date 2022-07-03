@@ -7,7 +7,7 @@ order: 4
 <!-- > Add Markdown syntax content to file `_tabs/about.md`{: .filepath } and it will show up on this page.
 {: .prompt-tip } -->
 
-<img src="/assets/lib/avatar-icon.png" width="200" height="200">
+<img src="avatar-icon.png" width="200" height="200">
 
 ## Oh, Hello There 👋 
 ## Welcome to my Blog
