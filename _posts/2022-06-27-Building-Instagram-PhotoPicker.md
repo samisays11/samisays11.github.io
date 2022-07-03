@@ -14,11 +14,12 @@ tags: [Swift, PhotoKit, UIKit, AVKit]
 In this tutorial, i will walk you through how to build a clone of **Instagram's Story Photo Picker** using Apple's PhotoKit, and AVKit APIs respectively.
 
 At the end of this tutorial you'll know how to: 
-* Ask for User's Photo Library Permission
-* Fetch Smart Albums and User Collections
-* Fetch High Res Versions of each Photo 
-* Fetch Video Assets and their thumbnails
-* Use the Data from the PHAssetCollections to power our UI
+- [ ] **Setup and Ask for User's Photo Library Permission**
+- [ ] **Fetch Smart Albums and User Collections**
+- [ ] **Fetch High Res Versions of each Photo**
+- [ ] **Fetch Video Assets and their thumbnails**
+- [ ] **Use the Data from the PHAssetCollections to power our UI**
+
 
 ## Getting Started
 Like many iOS APIs, the PhotoKit requires us to ask for user permission before we can access their Camera Roll. The user is presented with a dialog  asking for permission to allow the app to access the Photo Library. To get this permission, we use the PHPhotoLibrary, a shared object that manages access to user's photo library.
