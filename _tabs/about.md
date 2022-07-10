@@ -15,7 +15,7 @@ order: 4
 
  **I am Osas**, \
  an  iOS Developer with a keen Interest on **Behavioral Economics, All things-Psychology and Growth Hacking.** \
- I got into programming in the summer of 2017 to build [**Grinn**](https://link-url-here.org) an ios app that i wanted to design to make me and my buddy laugh at silly memes. The project spured my passion for learning about technology and drove me down a path of consistent desire to upskill myself so i could keep building virtually appealing softwares. \
+ I got into programming in the summer of 2017 to build [**Grinn**](http://itunes.apple.com/us/app/grinn/id1430380304/?ls=1&mt=8) an ios app that i wanted to design to make me and my buddy laugh at silly memes. The project spured my passion for learning about technology and drove me down a path of consistent desire to upskill myself so i could keep building virtually appealing softwares. \
  I find great joy in creating delightful user expriences through native ios apps.\
  And when I'm not programming you will probably find me geeking out on a book or something related to choice architecture, growth hacking or lifting heavy weights in rags 😂 
 
