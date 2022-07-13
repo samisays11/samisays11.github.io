@@ -3,7 +3,7 @@ title: How To Remove Empty PHAssetCollections from a PHFetchResult
 author: Osaretin
 date: 2022-07-11 03:08:00 +0800
 categories: [iOS Tutorials]
-tags: [photokit, phassetcollections, phfetchresult, phassets, custom photo picker]
+tags: [swift, ios, photokit, phassetcollections, phfetchresult, phassets, custom photo picker, uikit]
 ---
 
 
@@ -18,7 +18,7 @@ favorites,
 selfies, 
 screenshots, 
 livephotos, 
-panaramas etc in the user's photo lobrary and stores it in a variable named "smartAlbums"
+panaramas etc in the user's photo library and stores it in a variable named "smartAlbums"
 */
 smartAlbums = PHAssetCollection.fetchAssetCollections(with: .smartAlbum, subtype: .albumRegular, options: nil)
 
