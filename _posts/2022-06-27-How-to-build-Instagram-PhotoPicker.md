@@ -20,11 +20,13 @@ If you are not familiar with what that looks like there is a gif demo of it belo
 ## What You'll Learn
 To accomplish our goal we will have to use Apple's PhotoKit, and AVKit APIs respectively.
 So at the end of this tutorial you'll know how to: 
-- [ ] Setup and Ask for User's Photo Library Permission
-- [ ] Fetch Smart Albums and User Collections
-- [ ] Fetch High Res Versions of each Photo
-- [ ] Fetch Video Assets and their thumbnails
-- [ ] Use the Data from the PHAssetCollections to power our UI
+- [ ] How to Setup and Ask for User's Photo Library Permission.
+- [ ] How to Fetch Smart Albums and User-Created Albums.
+- [ ] How to Fetch all Assets in a Specific Album.
+- [ ] How to Retrieve Images from Assets.
+- [ ] Use to use the retrieved PHAssets and PHAssetCollections to power our UI
+- [ ] How to use PHPickerViewController to search and select specific assets.
+- [ ] How to use the PHPhotoLibraryChangeObserver protocol to keep our assets up to date.
 
 
 ## Getting Started
@@ -110,9 +112,8 @@ Run the project and click on the **Enable photo access** button. On tap iOS will
 
  <img src="/assets/img/alertDialogImage.png">  
 
-And just like that we are done:
-- [x] Setting up and Asking for User's Photo Library Permission.
-
+Great job! and just like that we are done with:
+- [x] How to Setup and Ask for User's Photo Library Permission.
 
 
 
@@ -675,29 +676,18 @@ We check if the update affects our userCreatedAlbums assets. Use changeInstance 
 And just liked that both our AlbumVC.swift and ViewController.swift files are now listening for any changes that occurs in the photos library!
 
 ## Congratulations!
-You did it! 🙌✊🥳🎉👏 you just replicated Instagram story's custom photo picker. That was a lot to digest in a short time, but hopefully you got a good introduction to the power of apple's photokit framework. Remember to [**download the source code**](https://github.com/samisays11/InstaPhotoPicker).  
+You did it! 🙌✊🥳🎉👏 you just replicated Instagram story's custom photo picker. That was a lot to digest in a short time, hopefully you got a good introduction to the power of apple's photokit framework. Remember to [**download the source code**](https://github.com/samisays11/InstaPhotoPicker).  
 
-You learned about:
-PhotoKit’s permission model.
-Accessing all photos, smart albums and user created albums.
-Fetching images from assets.
-Modifying asset metadata.
-Editing an asset’s image.
-Saving asset modifications.
-Listening to Photo library changes.
+So far we've covered: 
+- [x] How to Setup and Ask for User's Photo Library Permission.
+- [x] How to Fetch Smart Albums and User-Created Albums.
+- [x] How to Fetch all Assets in a Specific Album.
+- [x] How to Retrieve Images from Assets.
+- [x] Use to use the retrieved PHAssets and PHAssetCollections to power our UI
+- [x] How to use PHPickerViewController to search and select specific assets.
+- [x] How to use the PHPhotoLibraryChangeObserver protocol to keep our assets up to date.
 
+### What's Next?
+The PhotoKit is a robust framework with much to offer. There is still so much we can do with the impressive library that's beyond the scope of this tutorial. There are cool stuff like LivePhoto, video and the photo editing functionalities etc. Check out the [**Apple’s PhotoKit Documentation**](https://developer.apple.com/documentation/photokit) for more information.  
 
-
-<!-- ## What's Next?
-Congratulations! You’ve covered a lot of ground in a short time. You can download the final project by clicking the Download Materials button at the top or bottom of the tutorial. You learned about:
-PhotoKit’s permission model.
-Accessing all photos, smart albums and user collections.
-Fetching images from assets.
-Modifying asset metadata.
-Editing an asset’s image.
-Saving asset modifications.
-Reverting asset modifications.
-There is much more that PhotoKit has to offer, such as LivePhoto, video and the photo editing extension. Check out the PhotoKit documentation for more information:
-Apple’s PhotoKit Documentation
-Please share any comments or questions about this article in the forum discussion! -->
-
+That's all peeps, I hope you liked the tutorial and with that sami says bye 👋.
