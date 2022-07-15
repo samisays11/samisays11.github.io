@@ -44,7 +44,7 @@ Your **Info.plist** should look like this:
 
 
 ### Requesting Authorization to Access User's Photo Library
-Open your ViewController.swift file in the starter project and add the following code to your **getPhotoPermission** method in the Photokit section as shown below:
+Open your ViewController.swift file in the starter project and add the following code inside your **getPhotoPermission** method in the Photokit section:
  
 ```swift
 //MARK: - Photokit
@@ -113,7 +113,6 @@ Run the project and click on the **Enable photo access** button. On tap iOS will
 And just like that we are done:
 - [x] Setting up and Asking for User's Photo Library Permission.
 
-<!-- MIGRATE ## Understanding Photokits Main Objects   and ## Asset Data Models to this section  before doing the below -->
 
 
 
@@ -182,7 +181,7 @@ You might be thinking, “Hey, what is this **PHAssetCollectionSubtype** thing ?
 
 ## Fetching The Assets {#Fetching-The-Assets}
   
-Still in the ViewController.swift file go to the **fetchPhotoLibraryAssets** method in the PhotoKit section and add the following code &darr;
+Still in the ViewController.swift file go to the **fetchPhotoLibraryAssets** method below the **getPhotoPermission** method in the marked Photokit section and add the following code &darr;
 ```swift
 //MARK: - PhotoKits
  fileprivate func fetchPhotoLibraryAssets() {
@@ -226,13 +225,13 @@ Still in the ViewController.swift file go to the **fetchPhotoLibraryAssets** met
 
 2. This updates a UILabel's text in the askPhotoPermissionView to "Swipe Up to View Photos". Since the PhotoKit's methods automatically runs in the background thread, it's important to update UI related stuff on the main thread.
 
-3. When we are retrieving assets from the photo library with PHFetchResult, we can use a PHAssetCollectionSubtype object to retrieve a specific type of smart album. Here, we loop through our **listOfsmartAlbumSubtypesToBeFetched** array to fetch recent, favorites, videos, and screenshot smart albums. We then append them to the **smartAlbums** array we declared earlier. 
+3. When retrieving assets from the photo library with PHFetchResult, we can use a PHAssetCollectionSubtype object to retrieve a specific type of smart album. Here, we loop through our **listOfsmartAlbumSubtypesToBeFetched** array using the PHAssetCollection's fetchAssetCollection method to fetch the recent, favorites, videos, and screenshot smart albums. We then append them to the **smartAlbums** array we declared earlier. 
 
 4. When retrieving user created albums or smart albums, we can use a PHFetchOptions object to apply a set of sorting paramters to indicate how we would like the retrieved assets to be sorted. Here, we create a PHFetchOptions object and use a predicate to specify that we only want to fetch user created albums that contains at least one photo or video.
 
-5. When we are retrieving assets from the photo library with PHFetchResult, we can also use a PHFetchOptions object to apply a set of sorting paramters to indicate how we would like the retrieved assets to be sorted. Here, we create a sort descriptor that sorts assets by creation date from newest to oldest. 
+5. When retrieving assets from the photo library with PHFetchResult, a set of sorting paramters to indicate how we would like the retrieved assets to be sorted can also be applied to the PHFetchOptions object. Here, we create a sort descriptor that sorts assets by creation date from newest to oldest, and then we use the PHAsset's fetchAssetsfetch method to fetch all assets in the user's photo library.
 
-6. PhotoKit's methods automatically runs in the background thread, so we jump to the main thread to pass asset data to our to mediaPickerView.
+6. PhotoKit's methods automatically runs in the background thread, so we jump to the main thread to pass asset data to our to mediaPickerView to update the UI.
 
 
 ## Displaying All Photos In The User's Photo Library
@@ -265,9 +264,9 @@ Navigate to **MediaPickerView.swift** file in the Views folder and replace the c
 
 ```
 
-1. Here we are binding our assets to the cell's UI.
+1. Here we are binding our array of assets to each cell's UI.
 2. Here is a good example of how you treat PHFetchResult as an array. We are Returning the number of assets in the PHFetchResult as the number of items in the collectionView. 
-3. Here we are getting the selected cell's imageView and asset and then calling the **getAssetThumbnail** helper method to fetch the highest res quality of the asset's image. Then a delegate to handle the transition animation to StoriesEditorVC.  
+3. Here we are getting the selected cell's imageView and asset and then calling the **getAssetThumbnail** helper method to fetch the asset's highest quality image. Then a delegate to handle the transition animation to StoriesEditorVC.  
 
 > **Note:** To request the maximum possible size for a PHAsset's image we use the **PHImageManagerMaximumSize** object.
 {: .prompt-info } 
@@ -294,17 +293,18 @@ public func getAssetThumbnail(asset: PHAsset, size: CGSize) -> UIImage? {
 1. We instantiate PHImageManager with PHImageRequestOptions. 
 2. We are requesting the image from the image manager. Providing the asset, size, content mode, and options. Size is the size at which you would like the image returned. contentMode is how you would like the image to fit within the aspect ratio of the size. The default value is aspectFill. And then finally we return the requested image in the result handler.  
 
-Alright now that we are done discussing how we fetch images from assets lets build and run the project. Swipe up to view all photos in the library. Hooray 🙌✊🥳🎉👏 your collectionview now has images and video thumbnails!  
-<!-- However if you try to change the current album nothing happens, well lets fix that.  -->
+Alright now that we are done discussing how we fetch images from assets let's build and run the project. In the app swipe up to view all photos in the photos library. Hooray 🙌✊🥳🎉👏 your collectionview now has images and video thumbnails!  
+
 
  ![Desktop View](/assets/img/projectDemo2.gif){: .shadow }
  _Hooray 🙌✊🥳🎉👏 your collectionview now has images and video thumbnails!_
 
 
-## Presenting AlbumVC
-Navigate back to the **ViewController.swift** file and find the **handleOpenAlbumVC** method in the MediaPickerViewDelegate marked section. Replace the code in the **handleOpenAlbumVC** with the one below:
+## Passing Assets to AlbumVC
+Navigate back to the **ViewController.swift** file and find the **handleOpenAlbumVC** method in the marked MediaPickerViewDelegate section. Replace the code in the **handleOpenAlbumVC** with the one below:
 
 ```swift
+//MARK: - MediaPickerViewDelegate
 func handleOpenAlbumVC() {
     // 1
      let albumVC = AlbumVC(smartAlbums: smartAlbums, userCreatedAlbums: userCreatedAlbums)
@@ -316,42 +316,149 @@ func handleOpenAlbumVC() {
 
 ```
 
-1. Here we are passing the smart albums and user created albums data we fetched into the albumVC initializer right before the albumVC is modally presented.  
+1. Here we are injecting the smart albums and user created albums we fetched into the albumVC initializer right before the albumVC is modally presented.  
 
-Now with the AlbumVC populated with the album assets let us display them.  
-Displaying the cover image for an album is simply a matter of requesting each album's cover image from PHImageManager. The AlbumVC is almost set up to display albums, let us complete the setup and get it working.
+Now with the AlbumVC injected with the album assets, let's use the assets to display the albums.  
+Displaying the cover image for an album is simply a matter of requesting each album's cover image from PHImageManager. The AlbumVC is almost set up to display albums, let us complete the setup process and get it working.
 
 
 ## Displaying Albums
-Head to the **AlbumVC.swift** file in the Controllers folder and modify the **smartAlbumPlaceHolders** array in the marked properties section to this:
-
+Head to the **AlbumVC.swift** file in the Controllers folder and add this below the marked properties section:
 ```swift
-
-    fileprivate lazy var smartAlbumPlaceHolders = [SmartAlbumPlaceHolder(albumName: "Search", imageName: "magnifyingglass"),
-                                                   SmartAlbumPlaceHolder(albumName: "Recents", imageName: "clock", collection: smartAlbums[0]),
-                                                   SmartAlbumPlaceHolder(albumName: "Favorites", imageName: "heart", collection: smartAlbums[1]),
-                                                   SmartAlbumPlaceHolder(albumName: "Videos", imageName: "play.circle", collection: smartAlbums[2]),
-                                                   SmartAlbumPlaceHolder(albumName: "Screenshots", imageName: "iphone", collection: smartAlbums[3])
+// 1
+fileprivate lazy var smartAlbumSection = [SmartAlbumItem(albumName: "Search", imageName: "magnifyingglass"),
+                                          SmartAlbumItem(albumName: "Recents", imageName: "clock", collection: smartAlbums[0]),
+                                          SmartAlbumItem(albumName: "Favorites", imageName: "heart", collection: smartAlbums[1]),
+                                          SmartAlbumItem(albumName: "Videos", imageName: "play.circle", collection: smartAlbums[2]),
+                                          SmartAlbumItem(albumName: "Screenshots", imageName: "iphone", collection: smartAlbums[3])
     ]
-    
 ```
 
-Now scroll to the marked TableView Protocols section and update the tableView's **didSelectRowAt** method:
-```swift
+1. The smartAlbumSection is an array of SmartAlbumItems. This is a simple struct to power our tableView's first section.
+Each item holds a albumName, imageName, and an optional PHAssetCollection(the actual smart-album). The PHAssetCollection property of the SmartAlbumItems struct is optional because we know the first item (the Search item) in the smartAlbumSection array will not a have a PHAssetCollection property.
 
-     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        switch albumSections[indexPath.section] {
+Now scroll to the marked **TableView Protocols** section and let's update the tableView's cellForRowAt, didSelectRowAt, and numberOfRowsInSection methods to display our album's UI:  
+
+
+
+Add the **cellForRowAt** method
+```swift
+func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let sectionType = albumSections[indexPath.section]
+        switch sectionType {
         case .smartAlbums:
-            // 1
-            if let smartAlbum = smartAlbumPlaceHolders[indexPath.row].collection {
+            let smartAlbumCell = dequeSmartAlbumCell(for: indexPath)
+            return smartAlbumCell
+        case  .userCreatedAlbums:
+            let userCreatedAlbumCell = dequeUserCreatedAlbumCell(for: indexPath)
+            return userCreatedAlbumCell
+        }
+    }
+    
+```
+Here we deque each cell based on the album section type. Where section 0 is a smartAlbumCell and 1 is a userCreatedAlbumCell.  
+
+
+Above the cellForRowAt method add this **dequeSmartAlbumCell** method:
+```swift
+fileprivate func dequeSmartAlbumCell(for indexPath: IndexPath) -> UITableViewCell {
+        //1 cell dequeing
+         let smartAlbumCell = tableView.dequeueReusableCell(withIdentifier: smartAlbumCellIdentifier, for: indexPath)
+         smartAlbumCell.backgroundColor = .clear
+         smartAlbumCell.selectionStyle = .none
+        
+        //2 configuring SmartAlbumCell's UI and data binding
+        let album = smartAlbumSection[indexPath.row]
+        var contentConfig = smartAlbumCell.defaultContentConfiguration()
+        contentConfig.text = album.albumName
+        
+        let config = UIImage.SymbolConfiguration(pointSize: 15, weight: .semibold, scale: .large)
+        let image = UIImage(systemName: album.imageName, withConfiguration:
+                                config)?.withRenderingMode(.alwaysTemplate)
+
+        contentConfig.image = image
+        contentConfig.imageProperties.tintColor = .white
+        contentConfig.textProperties.color = .white
+        contentConfig.imageToTextPadding = 12
+        smartAlbumCell.contentConfiguration = contentConfig
+        
+         return smartAlbumCell
+     }
+```
+1. Here we are dequeing each smartAlbumCell.
+2. Configuring each smartAlbumCell with the new iOS 14.0+ tableview cell's UI configurations. Then binding the smartAlbumSection data to display each smartAlbumCell's title and icon.  
+
+
+Right below the dequeSmartAlbumCell method add this **dequeUserCreatedAlbumCell** method:
+```swift
+fileprivate func dequeUserCreatedAlbumCell(for indexPath: IndexPath) -> AlbumCell {
+         
+         // 1
+         let userCreatedAlbumCell = tableView.dequeueReusableCell(withIdentifier: userCreatedAlbumCellIdentifier, for: indexPath) as! AlbumCell
+         userCreatedAlbumCell.backgroundColor = .clear
+         userCreatedAlbumCell.selectionStyle = .none
+         
+         // 2
+         var coverAsset: PHAsset?
+         let aUserCreatedAlbum = userCreatedAlbums[indexPath.item]
+
+         // 3
+         let fetchOptions = PHFetchOptions()
+         fetchOptions.fetchLimit = 1
+         let sortDescriptor = NSSortDescriptor(key: "creationDate", ascending: false)
+         fetchOptions.sortDescriptors = [sortDescriptor]
+         
+         // 4
+         let fetchedAssets = PHAsset.fetchAssets(in: aUserCreatedAlbum, options: fetchOptions)
+         coverAsset = fetchedAssets.firstObject
+         guard let asset = coverAsset else { return userCreatedAlbumCell }
+         
+         // 5
+         let coverImage = getAssetThumbnail(asset: asset, size: userCreatedAlbumCell.bounds.size)
+         userCreatedAlbumCell.bindData(albumTitle: aUserCreatedAlbum.localizedTitle ?? "", albumCoverImage: coverImage)
+         
+         return userCreatedAlbumCell
+     }
+```
+1. Here we are dequeing each userCreatedAlbumCell.
+
+2. Here we create variables to hold an asset, which will be used as each album's cover image. And another variable to get each user-created album.
+
+3. Since we only want to fetch the most recent image in each user-created album, we use PHFetchOptions's fetchLimit and sortDescriptor to limit our fetch result to the most recently added asset in the album.
+
+4. We retrieve the album's first asset using the PHAsset's fetchAssets method (which is a PHFetchResult object) and set it as the cover asset.
+
+5. We grab the cover asset's image from PhotoKit's PHImageManager using our getAssetThumbnail method and then bind the title and image data to power our cell's UI.
+
+
+Add the **numberOfRowsInSection** method
+```swift
+ func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        switch albumSections[section] {
+        case .smartAlbums: return smartAlbumSection.count
+        case .userCreatedAlbums: return userCreatedAlbums.count
+        }
+    }
+    
+```
+Here we return the number of items in each section based on the album section type, so the tableView knows how many items to display in each section. 
+
+
+Add the **didSelectRowAt** method
+```swift
+func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        switch albumSections[indexPath.section] {
+        //1
+        case .smartAlbums:
+            
+            if let smartAlbum = smartAlbumSection[indexPath.row].collection {
                 delegate?.handleDidSelect(smartAlbum: smartAlbum)
             } else {
                 delegate?.handlePresentPHPickerViewController()
             }
             
             dismiss(animated: true)
-            
-            // 2
+        // 2    
         case .userCreatedAlbums:
             delegate?.handleDidSelect(smartAlbum: userCreatedAlbums[indexPath.row])
             dismiss(animated: true)
@@ -359,18 +466,23 @@ Now scroll to the marked TableView Protocols section and update the tableView's 
     }
     
 ```
-1. Here if the user selects a smart album section we simply delegate the action to the parent ViewController.swift file and dismiss the AlbumVC. And if the user selects the search option we simply present a PHPickerViewController in the  ViewController.swift file.
 
-2. Likewise for user created albums we delegate the action to the parent ViewController.swift file and dismiss the AlbumVC.
+
+1. Here if the user selects an item in the smart-album section we simply delegate the action to the parent ViewController.swift file, which is responsible for fetching the assets in the selected album and then we dismiss the AlbumVC. And if the user selects the search item we simply present a PHPickerViewController in the  ViewController.swift file via delegation.
+
+2. On selection of an item in the user created-albums section we delegate the action to the ViewController.swift file and dismiss the AlbumVC.
 
 Run the project and open the albums. You should see albums with their names and cover images being displayed!
-Hooray 🙌✊🥳🎉👏 we are done displaying albums, all that's left is changing our mediaPickerView's assets to the selected album's assets when didSelectRow method is Triggered from the AlbumVC.  
+Hooray 🙌✊🥳🎉👏 we are done displaying albums, all that's left is changing our mediaPickerView's assets to show the selected album's assets when didSelectRow method is Triggered from the AlbumVC.  
 
-![Desktop View](/assets/img/projectDemo2.gif){: .shadow }
+ <!-- I NEED A OPEN ALBUMVC GIF HERE -->
+
+
+![Desktop View](/assets/img/projectDemo2.geffefif){: .shadow }
  _Hooray 🙌✊🥳🎉👏 we are done displaying albums!_
 
-
-To accomplish changing the mediaPickerView's assets to the selected album's asset navigate back to the ViewController.swift file. Locate the **handleDidSelect** method below the marked AlbumVCDelegate section and add the following code to it:
+## Fetching Selected Album's Assets
+To display the selected album's photos in our mediaPickerView's UI, navigate back to the **ViewController.swift** file. Locate the **handleDidSelect** method below the marked **AlbumVCDelegate** section and add the following code to it:
 
 ```swift
 
@@ -390,7 +502,65 @@ To accomplish changing the mediaPickerView's assets to the selected album's asse
 Pretty self-explanatory from our [Fetching The Assets](#Fetching-The-Assets) section. Here we are simply fetching the selected album and passing it to our mediaPickerView to update our UI.  
 Now let's run the project, open the albums and select any album, you should see the mediaPickerView's assets update to display those from the selected album.
 
-![Desktop View](/assets/img/projectDemo2.gif){: .shadow }
+ <!-- I NEED A OPEN ALBUMVC GIF AND SELECTING ALBUM THAT CHANGES MEDIAPICKER VIEWS PHOTO GIF HERE -->
+
+![Desktop View](/assets/img/projectDemo2.gsdffeif){: .shadow }
+ _Hooray 🙌✊🥳🎉👏 we are done displaying albums!_
+
+
+## Searching Photos Library Using PHPickerViewController
+The first item in our smart album section is a search item. To mimic the instagram app's design of this UX flow we will be using the PHPickerViewController. A view controller that provides the user interface to search and pick photos from the photo library.  
+The PHPickerViewController uses the traditional delegate model that will alert you upon user interation completion.  
+
+Still in the **ViewController.swift** file, locate the **handlePresentPHPickerViewController** method which is below the marked **AlbumVCDelegate** section and update it content to this:
+
+```swift
+func handlePresentPHPickerViewController() {
+        // 1
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+            // 2
+            var configuration = PHPickerConfiguration(photoLibrary: PHPhotoLibrary.shared())
+            configuration.selectionLimit = 10
+            // 3
+            let picker = PHPickerViewController(configuration: configuration)
+            picker.delegate = self
+            self.present(picker, animated: true, completion: nil)
+        }
+    }
+```
+
+1. We are using the DispatchQueue's async delay method to ensure that the AlbumVC was dismissed before we attempt to present the PHPickerViewController.
+
+2. The PHPickerConfiguration allows us to set a multi-selection limit of 10.
+
+3. We instantiate the PHPickerViewController and set it's delegate before presenting it.
+
+> **Note:** We can also filter the type of media that is presented to the user via PHPickerViewController by using **configuration.filter = .images** or **configuration.filter = .any(of: [.livePhotos, .images])**.  
+{: .prompt-info }
+
+
+#### PHPickerViewControllerDelegate
+Just below the **handlePresentPHPickerViewController** method we have the marked **PHPickerViewControllerDelegate** section. Update the **picker()** method to this: 
+```swift
+func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
+        // 1
+        dismiss(animated: true)
+        let identifiers = results.compactMap(\.assetIdentifier)
+        let fetchResult = PHAsset.fetchAssets(withLocalIdentifiers: identifiers, options: nil)
+        // 2
+        DispatchQueue.main.async {
+            self.mediaPickerView.bindDataFromPhotosLibrary(fetchedAssets: fetchResult, albumTitle: "Search Result")
+        }
+    }
+```
+1. First we dismiss the PHPickerViewController upon completion of photo selection. Then we retrieve the assets for the selected photos and videos using their assetIdentifier.
+2. We pass the retrieved assets to be displayed by the mediaPickerView's UI.
+
+Now let's run the project, open the album and tap the search item. The PHPickerViewController will present a familiar UI of your photos and albums. Search and select photos and then tap the add button to dismiss. You should have something similar to this happening:
+
+ <!-- I NEED A SELECT SEARCH ITEM IN ALBUM AND SHOW  PHPickerViewController  ux flow gif-->
+
+![Desktop View](/assets/img/projectDemo2.gsdffeif){: .shadow }
  _Hooray 🙌✊🥳🎉👏 we are done displaying albums!_
 
 
@@ -504,6 +674,19 @@ We check if the update affects our userCreatedAlbums assets. Use changeInstance 
 
 And just liked that both our AlbumVC.swift and ViewController.swift files are now listening for any changes that occurs in the photos library!
 
+## Congratulations!
+You did it! 🙌✊🥳🎉👏 you just replicated Instagram story's custom photo picker. That was a lot to digest in a short time, but hopefully you got a good introduction to the power of apple's photokit framework. Remember to [**download the source code**](https://github.com/samisays11/InstaPhotoPicker).  
+
+You learned about:
+PhotoKit’s permission model.
+Accessing all photos, smart albums and user created albums.
+Fetching images from assets.
+Modifying asset metadata.
+Editing an asset’s image.
+Saving asset modifications.
+Listening to Photo library changes.
+
+
 
 <!-- ## What's Next?
 Congratulations! You’ve covered a lot of ground in a short time. You can download the final project by clicking the Download Materials button at the top or bottom of the tutorial. You learned about:
@@ -518,10 +701,3 @@ There is much more that PhotoKit has to offer, such as LivePhoto, video and the 
 Apple’s PhotoKit Documentation
 Please share any comments or questions about this article in the forum discussion! -->
 
-
- 
-
-<!-- 
-3. Because this method runs in the background, dispatch the rest of the logic on the main thread because it updates the UI.
-Update the controller’s asset property with the updated asset and fetch the new image.
-Refresh the UI. -->
