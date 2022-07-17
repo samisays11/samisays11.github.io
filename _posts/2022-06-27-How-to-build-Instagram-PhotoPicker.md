@@ -476,11 +476,9 @@ func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 Run the project and open the albums. You should see albums with their names and cover images being displayed!
 Hooray 🙌✊🥳🎉👏 we are done displaying albums, all that's left is changing our mediaPickerView's assets to show the selected album's assets when didSelectRow method is Triggered from the AlbumVC.  
 
- <!-- I NEED A OPEN ALBUMVC GIF HERE -->
 
-
-![Desktop View](/assets/img/projectDemo2.geffefif){: .shadow }
- _Hooray 🙌✊🥳🎉👏 we are done displaying albums!_
+![Desktop View](/assets/img/openingAlbumDemo.gif){: .shadow w="800" h="800"  }
+ _Hooray 🙌✊🥳🎉👏 we can now see our albums!_
 
 ## Fetching Selected Album's Assets
 To display the selected album's photos in our mediaPickerView's UI, navigate back to the **ViewController.swift** file. Locate the **handleDidSelect** method below the marked **AlbumVCDelegate** section and add the following code to it:
@@ -503,10 +501,9 @@ To display the selected album's photos in our mediaPickerView's UI, navigate bac
 Pretty self-explanatory from our [Fetching The Assets](#Fetching-The-Assets) section. Here we are simply fetching the selected album and passing it to our mediaPickerView to update our UI.  
 Now let's run the project, open the albums and select any album, you should see the mediaPickerView's assets update to display those from the selected album.
 
- <!-- I NEED A OPEN ALBUMVC GIF AND SELECTING ALBUM THAT CHANGES MEDIAPICKER VIEWS PHOTO GIF HERE -->
 
-![Desktop View](/assets/img/projectDemo2.gsdffeif){: .shadow }
- _Hooray 🙌✊🥳🎉👏 we are done displaying albums!_
+![Desktop View](/assets/img/didSelectAlbumVid.gif){: .shadow w="800" h="800"  }
+ _Hooray 🙌✊🥳🎉👏 we can now change albums!_
 
 
 ## Searching Photos Library Using PHPickerViewController
@@ -559,10 +556,9 @@ func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPicke
 
 Now let's run the project, open the album and tap the search item. The PHPickerViewController will present a familiar UI of your photos and albums. Search and select photos and then tap the add button to dismiss. You should have something similar to this happening:
 
- <!-- I NEED A SELECT SEARCH ITEM IN ALBUM AND SHOW  PHPickerViewController  ux flow gif-->
 
-![Desktop View](/assets/img/projectDemo2.gsdffeif){: .shadow }
- _Hooray 🙌✊🥳🎉👏 we are done displaying albums!_
+![Desktop View](/assets/img/phPickerInPhoneDemo.gif){: .shadow w="800" h="800"  }
+ _PHPickerViewController Search Demo_
 
 
 ## PHPhotoLibraryChangeObserver
