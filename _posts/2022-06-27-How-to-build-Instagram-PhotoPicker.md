@@ -480,6 +480,9 @@ Hooray 🙌✊🥳🎉👏 we are done displaying albums, all that's left is cha
 ![Desktop View](/assets/img/openingAlbumDemo.gif){: .shadow w="800" h="800"  }
  _Hooray 🙌✊🥳🎉👏 we can now see our albums!_
 
+ - [x] How to Fetch Smart Albums and User-Created Albums.
+
+
 ## Fetching Selected Album's Assets
 To display the selected album's photos in our mediaPickerView's UI, navigate back to the **ViewController.swift** file. Locate the **handleDidSelect** method below the marked **AlbumVCDelegate** section and add the following code to it:
 
