@@ -25,7 +25,7 @@ Born in Nigeria🇳🇬, now living in the United States🇺🇸.
 > I build and maintain [**Grinn**](http://itunes.apple.com/us/app/grinn/id1430380304/?ls=1&mt=8), alongside two other apps **Deep Work app** (coming soon), & **TidBit app** that's currently in progress
 
 **I read alot** (average 2 books a month)
-> [**Check out my 2020 read list**](https://samisays11.github.io/posts/My-2021-Readlist)
+> [**Check out my 2021 read list**](https://samisays11.github.io/posts/My-2021-Readlist)
 
 
 **I write alot**
