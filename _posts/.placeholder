@@ -14,3 +14,20 @@
 
 how to scroll to specific header section in md
 https://stackoverflow.com/questions/6695439/how-to-link-to-a-named-anchor-in-multimarkdown
+
+
+Good article on drag and drop api
+https://mobikul.com/ios-longpress-drag-and-drop-using-uicollectionview-with-animation/
+
+Good website for articles ideas
+https://www.biteinteractive.com/author/matt-neub-bite/
+
+
+
+```swift
+
+```
+
+
+> **Note:** The targetIndexPath is unwrapped because the indexPathForItem method is not guaranteed to return an indexPath since the user might be long pressing between cells or the collectionview's padded area, so we might not necessarily have a location.
+{: .prompt-tip }
