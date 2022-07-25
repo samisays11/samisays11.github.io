@@ -84,8 +84,9 @@ With the long press gesture recognizer setup to handle collectionview interactio
                                  to destinationIndexPath: IndexPath) {
         
         // first grab and remove item at sourceIndex
-        let item = items.remove(at: sourceIndexPath.item)
-        items.insert(item, at: destinationIndexPath.item)
+        let photo = photosArray.remove(at: sourceIndexPath.item)
+        photosArray.insert(item, at: destinationIndexPath.item)
+
         
     }
 
