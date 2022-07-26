@@ -19,40 +19,42 @@ Autodidact🔥, ambivert😃, multi-lingual🗣️, and voracious reader📚.
 Born in Nigeria🇳🇬, now living in the United States🇺🇸.
 
 
-## What I do alot 🔁
+## What I Do 🔁
 
-**I code alot** 
-> I build and maintain [**Grinn**](http://itunes.apple.com/us/app/grinn/id1430380304/?ls=1&mt=8), alongside two other apps **Deep Work app** (coming soon), & **TidBit app** that's currently in progress
+**I code a lot** 👨‍💻
+> I build and maintain [**Grinn**](http://itunes.apple.com/us/app/grinn/id1430380304/?ls=1&mt=8), alongside two other apps that's currently in development.
 
-**I read alot** (average 2 books a month)
-> [**Check out my 2021 read list**](https://samisays11.github.io/posts/My-2021-Readlist)
+**I read a lot** 🤓
+> About 2 to 3 books a month. [Check out my 2021 read list](https://samisays11.github.io/posts/My-2021-Readlist) for awesome book suggestions.
 
 
-**I write alot**
+**I write a lot** ✍️
 > Well this blog for one, and a host of other book summaries in my personal journal.
 
-**I train alot** (recreational powerlifter)
-> I have a 1790 total for ya powerlifting bros: a 440lbs bench, 650lbs raw squat and 700lbs deadlift.
+**I train a lot** 🏋️‍♀️
+> I have a 1790 total for my powerlifting bros: a 440lbs bench, 650lbs raw squat and 700lbs deadlift.
 
 
-## About my iOS Journey 👨‍💻
+## About my iOS Journey 
 
  I got into iOS Development in the **summer of 2017** to build [**Grinn**](http://itunes.apple.com/us/app/grinn/id1430380304/?ls=1&mt=8), an ios meme app that i initally designed to send memes to my friends. The project spurred my passion for learning about technology and gave me a consistent desire to upskill myself. The **Swift** programming language was my first love, It was love at first code and gave me a creative outlet to express myself with it's modern and delightful syntax.  
  I have played around with **Kotlin** and **JavaScript** but i still have a major bias for **Swift**.
 
-> The blog is essentially a repositiory of insights from my favorite **books, programming discoveries and personal experiences**. It's basically an online journal of my thoughts.
+<!-- > The blog is essentially a repo of insights from my favorite **books, programming discoveries and personal experiences**. -->
 <!-- {: .prompt-tip } -->
 
-## Currently Reading 📖
+## What I'm Currently Reading 📖
 
 **The Catalyst: How to change anyone's mind**
+
+![Desktop View](https://executiveeducation.wharton.upenn.edu/wp-content/uploads/2020/02/2003-the-catalyst-how-to-change-anyones-mind-600.jpg){: .left w="300" }
+ <!-- _By Jonah Berger_ -->
+ <br/><br/>
+ <br/><br/>
  <br/><br/>
 
-![Desktop View](https://executiveeducation.wharton.upenn.edu/wp-content/uploads/2020/02/2003-the-catalyst-how-to-change-anyones-mind-600.jpg){: .left w="150" }
- _By Jonah Berger_
 
-
-> I encourage you to check out jonah berger's other book: **Contagious**. An absolute gem on Why Things Catch On and how to engineer virality into products or ideas. 
+> I encourage you to check out jonah berger's other book: **Contagious**. An absolute gem on Why Things Catch On and how to engineer virality into products and ideas. 
 {: .prompt-tip }
 
 
