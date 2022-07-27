@@ -32,7 +32,7 @@ Born in Nigeria🇳🇬, now living in the United States🇺🇸.
 > Well this blog for one, and a host of other book summaries in my personal journal.
 
 **I train a lot** 🏋️‍♀️
-> I have a 1790 total for my powerlifting bros: a 440lbs bench, 650lbs raw squat and 700lbs deadlift.
+> I have a 1790lbs total for my powerlifting bros: a 440lbs bench, 650lbs raw squat and 700lbs deadlift.
 
 
 ## About my iOS Journey 

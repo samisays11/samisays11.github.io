@@ -1,0 +1,21 @@
+---
+title: Displaying Email Address Suggestions in UITextfield's inputAccessoryView
+author: Osaretin
+date: 2022-07-24 03:08:00 +0800
+categories: [iOS, Swift Tutorials]
+tags:
+  [
+    uik,
+    swift,
+    ios programming
+  ]
+image:
+  path: https://i.stack.imgur.com/XAj7U.png
+  width: 1000 # in pixels
+  height: 400 # in pixels
+  alt: End goal
+---
+
+It can be easy to forget what a truly incredible and powerful class UITextField is, and what it gives you (more or less) for free. It handles input in a variety of languages (possibly including multiple at once!), dictation, bi-directional text, spell checking, auto-correcting, smart-quoting-and-dashing, and more, so that you don't really have to think about what's really going on behind the scenes too much.
+
+Handling text input is a constant battle between flexibility, quick entry, validation, formatting. One of the many tools Apple has helpfully provided to make this a little better is UITextContentType -- a simple concept that we can use to help create more consistency in our apps for how text input is handled. By using UITextContentType and a few other related options, developers can greatly improve the user experience of working with text fields in their apps.

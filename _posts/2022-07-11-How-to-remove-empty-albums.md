@@ -2,7 +2,7 @@
 title: How To Remove Empty PHAssetCollections from a PHFetchResult
 author: Osaretin
 date: 2022-07-11 03:08:00 +0800
-categories: [iOS Tutorials]
+categories: [iOS, Swift Tutorials]
 tags: [swift, ios, photokit, phassetcollections, phfetchresult, phassets, custom photo picker, uikit]
 ---
 

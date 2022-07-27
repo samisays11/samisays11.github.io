@@ -1,19 +1,21 @@
 ---
-title: How to Drag & Re-order CollectionView Cells
+title: How to Drag & Reorder CollectionView Cells
 author: Osaretin
 date: 2022-07-19 03:08:00 +0800
-categories: [iOS Tutorials]
+categories: [iOS, Swift Tutorials]
 tags:
   [
     swift,
     ios,
-    uikit
+    uikit,
+    collectionview,
+    gesture recognizers
   ]
 image:
-  path: https://i.stack.imgur.com/CJbiO.png
-  width: 1000 # in pixels
-  height: 400 # in pixels
-  alt: image
+  path: /assets/img/dragDropDemo.gif
+  width: 600 # in pixels
+  height: 600 # in pixels
+  alt: Demo
 ---
 
 Reordering Collection View Cells is a feature that was introduced in iOS 9. It is a surprisingly easy interaction to build, both in collectionviews and tableviews. By leveraging the <mark>UILongPressGestureRecognizer</mark> class we can easily implement a drag and reorder interaction of collectionview cells. It's simply matter of updating the collectionview's data model to match the re-order. 
@@ -105,9 +107,11 @@ That's all. Build and Run the project, long-press a cell and reorder it.
 
 ## Resources
 
-[**Download the source code**](https://github.com/samisays11/Drag-Drop-CollectionView-Cells-Demo). The project contains a collectionview that has two sections, each cell cell contains a letter from the alphabet. Drag to reorder the cells to make words.
+[**Download the source code**](https://github.com/samisays11/Drag-Drop-CollectionView-Cells-Demo). The project contains a collectionview that has two sections, each cell cell contains a letter from the alphabet or an emoji. Drag to reorder the cells to make words.
 
 
+
+<!-- https://i.stack.imgur.com/CJbiO.png -->
 
 
 <!-- 

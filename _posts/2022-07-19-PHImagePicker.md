@@ -2,7 +2,7 @@
 title: The Modern iOS 14 Photo Picker
 author: Osaretin
 date: 2022-07-19 03:08:00 +0800
-categories: [iOS Tutorials]
+categories: [iOS, Swift Tutorials]
 tags:
   [
     swift,

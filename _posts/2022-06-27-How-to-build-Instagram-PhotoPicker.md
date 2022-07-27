@@ -2,7 +2,7 @@
 title: Let's Build a Custom Image Picker Just like Instagram Stories
 author: Samisays11
 date: 2022-06-27 11:33:00 +0800
-categories: [iOS Swift Tutorials]
+categories: [iOS, Swift Tutorials]
 tags: [swift, ios, photokit, phassetcollections, phfetchresult, phassets, custom photo picker, uikit]
 pin: true
 ---
