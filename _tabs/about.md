@@ -10,7 +10,7 @@ order: 4
 <img src="/assets/img/avatar.png" width="200" height="200">
 
 
-## Me in 20 seconds ⌛️
+## ⌛️ Me in 20 seconds 
 
 I'm a self-taught ** iOS Developer** with keen Interests in **Behavioral Economics**, **Psychology**, **Growth Hacking** and **Entrepreneurship**. Young and passionate with **high agency** and faith in the power of thoughts and self belief.
 
@@ -19,7 +19,7 @@ Autodidact🔥, ambivert😃, multi-lingual🗣️, and voracious reader📚.
 Born in Nigeria🇳🇬, now living in the United States🇺🇸.
 
 
-## What I Do 🔁
+## 🔁 What I Do 
 
 **I code a lot** 👨‍💻
 > I build and maintain [**Grinn**](http://itunes.apple.com/us/app/grinn/id1430380304/?ls=1&mt=8), alongside two other apps that's currently in development.
@@ -35,7 +35,7 @@ Born in Nigeria🇳🇬, now living in the United States🇺🇸.
 > I have a 1790lbs total for my powerlifting bros: a 440lbs bench, 650lbs raw squat and 700lbs deadlift.
 
 
-## About my iOS Journey 
+##  About my iOS Journey...
 
  I got into iOS Development in the **summer of 2017** to build [**Grinn**](http://itunes.apple.com/us/app/grinn/id1430380304/?ls=1&mt=8), an ios meme app that i initally designed to send memes to my friends. The project spurred my passion for learning about technology and gave me a consistent desire to upskill myself. The **Swift** programming language was my first love, It was love at first code and gave me a creative outlet to express myself with it's modern and delightful syntax.  
  I have played around with **Kotlin** and **JavaScript** but i still have a major bias for **Swift**.
@@ -43,7 +43,22 @@ Born in Nigeria🇳🇬, now living in the United States🇺🇸.
 <!-- > The blog is essentially a repo of insights from my favorite **books, programming discoveries and personal experiences**. -->
 <!-- {: .prompt-tip } -->
 
-## Currently Reading 📖
+
+## 👀 I'm interested in...
+
+* All things iOS.
+* UI, UX Design.
+* Deploying behavioral psychology hacks to drive product adoption.
+* All things Growth Hacking.
+
+## 🌱 I'm Currently Learning...
+
+* NodeJS, express & mongoDB via code academy.
+* Mastering Testing in iOS.
+* Design Principles & clean code.
+
+
+## 📖 I'm Currently Reading...
 
 ![Desktop View](https://images-na.ssl-images-amazon.com/images/I/71yaEeZD3fL.jpg){: .left w="300" }
  <br/><br/>
