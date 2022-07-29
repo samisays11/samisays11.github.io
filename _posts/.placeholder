@@ -31,3 +31,11 @@ https://www.biteinteractive.com/author/matt-neub-bite/
 
 > **Note:** The targetIndexPath is unwrapped because the indexPathForItem method is not guaranteed to return an indexPath since the user might be long pressing between cells or the collectionview's padded area, so we might not necessarily have a location.
 {: .prompt-tip }
+
+
+
+
+Catalyst | Currently Reading 📖
+--- | ---
+![](https://executiveeducation.wharton.upenn.edu/wp-content/uploads/2020/02/2003-the-catalyst-how-to-change-anyones-mind-600.jpg){: .left w="150"  } | ![](https://images-na.ssl-images-amazon.com/images/I/71yaEeZD3fL.jpg){: .left w="150" }
+

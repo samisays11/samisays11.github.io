@@ -43,19 +43,18 @@ Born in Nigeria🇳🇬, now living in the United States🇺🇸.
 <!-- > The blog is essentially a repo of insights from my favorite **books, programming discoveries and personal experiences**. -->
 <!-- {: .prompt-tip } -->
 
-## What I'm Currently Reading 📖
+## Currently Reading 📖
 
-**The Catalyst: How to change anyone's mind**
-
-![Desktop View](https://executiveeducation.wharton.upenn.edu/wp-content/uploads/2020/02/2003-the-catalyst-how-to-change-anyones-mind-600.jpg){: .left w="300" }
- <!-- _By Jonah Berger_ -->
+![Desktop View](https://images-na.ssl-images-amazon.com/images/I/71yaEeZD3fL.jpg){: .left w="300" }
  <br/><br/>
  <br/><br/>
  <br/><br/>
 
 
-> I encourage you to check out jonah berger's other book: **Contagious**. An absolute gem on Why Things Catch On and how to engineer virality into products and ideas. 
+> I encourage you to check out Eyal's other book: **Hooked**. An absolute masterpiece on how to engineer user behavior. 
 {: .prompt-tip }
+
+
 
 
 <!-- I like to think of myself as a knowledge athlete. I have mastered the art of continous learning, probably why I'm drawn to the tech industry (there's always something to learn). I'm a master of the flow state, inversion & high agency, student of logic and reasoning and when i'm not laughing i'm probably sleeping. -->
